@@ -26,6 +26,7 @@
                     <div><a href="#">{{$user->profile->url}}</a></div>
                 </div>
             </div>
+            <hr>
             <div class="row pt-5">
                 @foreach($user->posts as $post)
                 <div class="col-3 pt-3">
