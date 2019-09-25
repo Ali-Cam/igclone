@@ -26,11 +26,11 @@ class ProfilesController extends Controller
         ]);
         if(request('image')){
             $imagePath= request('image')->store('profile', 'public');
-            $image= Image::make(public_path('storage/{$imagePath}'))->fit(1000,1000);
+            $image= Image::make(public_path("storage/{$imagePath}"))->fit(500);
             $image->save();
+        }else {
+            $imagePath = $user->profile->image;
         }
-
-
         auth()->user()->profile->update(array_merge(
             $validated,
             ['image'=> $imagePath]
